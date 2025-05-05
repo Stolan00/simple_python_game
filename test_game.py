@@ -80,11 +80,6 @@ class TestSimpleGameIntegration(unittest.TestCase):
         self.assertIn("1. Open the red door", output)
         self.assertIn("2. Open the blue door", output)
 
-    # ... (keep other existing integration tests: test_integration_get_key_from_blue_room,
-    #      test_integration_red_room_without_key, test_integration_red_room_with_key,
-    #      test_integration_secret_ending_and_restart, test_integration_blue_door_first,
-    #      test_integration_invalid_choice_input, test_integration_quit_from_ending) ...
-
     @patch('builtins.input', side_effect=['1'])
     @patch('sys.stdout', new_callable=io.StringIO)
     @patch('simple_game.clear_screen')
@@ -181,7 +176,6 @@ class TestSimpleGameIntegration(unittest.TestCase):
         self.assertEqual(choice_made["text"], "Quit")
 
 
-    # --- *** NEW TESTS FOR COVERAGE *** ---
     @patch('builtins.input', side_effect=['q']) # Input 'q' to quit
     @patch('sys.stdout', new_callable=io.StringIO)
     @patch('simple_game.clear_screen')
