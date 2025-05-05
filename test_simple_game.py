@@ -13,7 +13,6 @@ loader = unittest.TestLoader()
 # --- Unit Test Class (Unchanged from previous version) ---
 class TestSimpleGameUnit(unittest.TestCase):
     """Unit tests focusing on isolated functions."""
-    # ... (keep all unit tests from the previous version) ...
 
     def test_format_text_bold(self):
         self.assertEqual(simple_game.format_text("Hello **World**!"), "Hello World!")
@@ -74,9 +73,9 @@ class TestSimpleGameIntegration(unittest.TestCase):
         self.assertEqual(simple_game.player["name"], "TestPlayer")
         _, _ = simple_game.show_text_node(next_node_id)
         output = mock_stdout.getvalue()
-        # --- *** FIX HERE *** ---
+
         self.assertIn("Hello, TestPlayer!", output) # Check for the formatted text
-        # --- End of Fix ---
+
         self.assertIn("1. Open the red door", output)
         self.assertIn("2. Open the blue door", output)
 
@@ -181,7 +180,7 @@ class TestSimpleGameIntegration(unittest.TestCase):
     @patch('simple_game.clear_screen')
     def test_integration_node_with_no_choices(self, mock_clear, mock_stdout, mock_input):
         """Integration Test (NEW): Cover node with no available choices."""
-        # Ensure the deadEnd node exists in simple_game.py
+
         if "deadEnd" not in simple_game.get_text_nodes():
              self.skipTest("Skipping test: 'deadEnd' node not found in simple_game.py")
 
@@ -217,12 +216,10 @@ class TestSimpleGameIntegration(unittest.TestCase):
         self.assertIn("You find a small key!", output)
         self.assertIn("Congratulations, MainPlayer!", output)
         self.assertIn("Thanks for playing!", output) # Check the final quit message
-        # Verify final state (optional, but good)
         self.assertTrue(simple_game.state.get("hasKey")) # Should have key at the end
 
 # --- Test Execution Block (Unchanged) ---
 if __name__ == '__main__':
-    # ... (keep the execution block from the previous version) ...
     print("--- Discovering and running tests ---")
     suite = unittest.TestSuite()
     suite.addTest(loader.loadTestsFromTestCase(TestSimpleGameUnit))

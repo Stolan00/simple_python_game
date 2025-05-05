@@ -19,7 +19,7 @@ def get_text_nodes():
     return {
         "intro": lambda: {
             "id": "intro",
-            "text": "Welcome! This is a tiny demonstration.\n\nPress Enter to continue.",
+            "text": "Welcome! This is a tiny demonstration.\n\nPlease select a choice.",
             "hide_back_button": True, # Not used in console, but kept for parity
             "choices": [
                 {"text": "Next", "next_text": "askName"}
@@ -147,8 +147,6 @@ def show_text_node(node_id):
 
     if not available_choices:
          print("\nThere are no choices here.")
-         # Decide what happens - maybe loop back or force a quit/restart?
-         # For now, let's add a forced quit option if no choices lead anywhere.
          print("Q. Quit")
 
 
