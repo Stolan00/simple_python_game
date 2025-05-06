@@ -19,7 +19,7 @@ def get_text_nodes():
     return {
         "intro": lambda: {
             "id": "intro",
-            "text": "Welcome! This is a tiny demonstration.\n\nPlease select a choice.",
+            "text": "Welcome! This is a tiny demonstration.\n\nPlease make  a choice.",
             "hide_back_button": True, # Not used in console, but kept for parity
             "choices": [
                 {"text": "Next", "next_text": "askName"}
